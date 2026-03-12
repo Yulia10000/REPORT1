@@ -4,7 +4,7 @@
 | 2 | Security | `login()` | SQL запит формується через конкатенацію рядків |Може виникнути SQL Injection | `Використовувати PreparedStatement` |
 | 3 | Correctness | `main()` | Порівняння рядків email == "admin@local" | У Java == порівнює посилання, а не значення|Використовувати email.equals("admin@local") |
 | 4 | Maintainability| `глобальні змінні` | Використання static Map cache та lastUserEmail|Глобальний стан ускладнює підтримку та тестування програми |Інкапсулювати стан у клас або сервіс |
-| 5 | Security | `BadStoreApp.java` | | Захардкоджені дані для підключення до БД (DB_USER, DB_PASS)|Якщо код буде у репозиторії, дані можуть бути викрадені |        |Зберігати дані у конфігурації або змінних середовища|
+| 5 | Security | `BadStoreApp.java` || Захардкоджені дані для підключення до БД (DB_USER, DB_PASS)|Якщо код буде у репозиторії, дані можуть бути викрадені |        |Зберігати дані у конфігурації або змінних середовища|
 | 6 | Correctness | `buildReport()` |Цикл for (int i = 0; i <= lines.size(); i++) |Помилка off-by-one → може виникнути IndexOutOfBoundsException| Змінити на i < lines.size()|
 | 7 | Correctness | `buildReport()` |иклик email.trim() без перевірки на null  |Якщо email == null, виникне NullPointerException| Додати перевірку if (email == null)|
 | 8 |Maintainability | `try/catch блоки` | Порожні catch (Exception e) {} | Помилки ігноруються, що ускладнює пошук проблем| Логувати помилки або обробляти їх|
